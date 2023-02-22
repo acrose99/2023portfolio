@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Card from "@/components/home/card";
 import Layout from "@/components/layout";
 import Balancer from "react-wrap-balancer";
@@ -7,108 +8,172 @@ import { Github, Twitter } from "@/components/shared/icons";
 import WebVitals from "@/components/home/web-vitals";
 import ComponentGrid from "@/components/home/component-grid";
 import Image from "next/image";
-
+import Window from "@/components/128k/Window";
 export default function Home() {
   return (
-    <Layout>
-      <motion.div
-        className="max-w-xl px-5 xl:px-0"
-        initial="hidden"
-        whileInView="show"
-        animate="show"
-        viewport={{ once: true }}
-        variants={{
-          hidden: {},
-          show: {
-            transition: {
-              staggerChildren: 0.15,
-            },
-          },
+    // <Layout>
+    //   <div className="window">
+    //     <div className="title-bar">
+    //       <button aria-label="Close" className="close"></button>
+    //       <h1 className="title">Window With Stuff</h1>
+    //       <button aria-label="Resize" className="resize"></button>
+    //     </div>
+    //     <div className="separator"></div>
+
+    //     <div className="window-pane">Woo I got stuff in me!</div>
+    //   </div>
+    //   <motion.div
+    //     className="max-w-xl px-5 xl:px-0"
+    //     initial="hidden"
+    //     whileInView="show"
+    //     animate="show"
+    //     viewport={{ once: true }}
+    //     variants={{
+    //       hidden: {},
+    //       show: {
+    //         transition: {
+    //           staggerChildren: 0.15,
+    //         },
+    //       },
+    //     }}
+    //   >
+    //     <motion.a
+    //       variants={FADE_DOWN_ANIMATION_VARIANTS}
+    //       href="https://twitter.com/steventey/status/1613928948915920896"
+    //       target="_blank"
+    //       rel="noreferrer"
+    //       className="mx-auto mb-5 flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full bg-blue-100 px-7 py-2 transition-colors hover:bg-blue-200"
+    //     >
+    //       <Twitter className="h-5 w-5 text-[#1d9bf0]" />
+    //       <p className="text-sm font-semibold text-[#1d9bf0]">
+    //         Introducing Precedent
+    //       </p>
+    //     </motion.a>
+    //     <motion.h1
+    //       className="bg-gradient-to-br from-black to-stone-500 bg-clip-text text-center font-display text-4xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-7xl md:leading-[5rem]"
+    //       variants={FADE_DOWN_ANIMATION_VARIANTS}
+    //     >
+    //       <Balancer>Building blocks for your Next project</Balancer>
+    //     </motion.h1>
+    //     <motion.p
+    //       className="mt-6 text-center text-gray-500 md:text-xl"
+    //       variants={FADE_DOWN_ANIMATION_VARIANTS}
+    //     >
+    //       <Balancer>
+    //         An opinionated collection of components, hooks, and utilities for
+    //         your Next.js project.
+    //       </Balancer>
+    //     </motion.p>
+    //     <motion.div
+    //       className="mx-auto mt-6 flex items-center justify-center space-x-5"
+    //       variants={FADE_DOWN_ANIMATION_VARIANTS}
+    //     >
+    //       <a
+    //         className="group flex max-w-fit items-center justify-center space-x-2 rounded-full border border-black bg-black px-5 py-2 text-sm text-white transition-colors hover:bg-white hover:text-black"
+    //         href={DEPLOY_URL}
+    //         target="_blank"
+    //         rel="noopener noreferrer"
+    //       >
+    //         <svg
+    //           className="h-4 w-4 group-hover:text-black"
+    //           viewBox="0 0 24 24"
+    //           fill="currentColor"
+    //           xmlns="http://www.w3.org/2000/svg"
+    //         >
+    //           <path
+    //             d="M12 4L20 20H4L12 4Z"
+    //             stroke="currentColor"
+    //             strokeWidth="2"
+    //             strokeLinecap="round"
+    //             strokeLinejoin="round"
+    //           />
+    //         </svg>
+    //         <p>Deploy to Vercel</p>
+    //       </a>
+    //       <a
+    //         className="flex max-w-fit items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-gray-600 shadow-md transition-colors hover:border-gray-800"
+    //         href="https://github.com/steven-tey/precedent"
+    //         target="_blank"
+    //         rel="noopener noreferrer"
+    //       >
+    //         <Github />
+    //         <p>Star on GitHub</p>
+    //       </a>
+    //     </motion.div>
+    //   </motion.div>
+    //   {/* here we are animating with Tailwind instead of Framer Motion because Framer Motion messes up the z-index for child components */}
+    //   <div className="my-10 grid w-full max-w-screen-xl animate-[slide-down-fade_0.5s_ease-in-out] grid-cols-1 gap-5 px-5 md:grid-cols-3 xl:px-0">
+    //     {features.map(({ title, description, demo, large }) => (
+    //       <Card
+    //         key={title}
+    //         title={title}
+    //         description={description}
+    //         demo={
+    //           title === "Beautiful, reusable components" ? (
+    //             <ComponentGrid />
+    //           ) : (
+    //             demo
+    //           )
+    //         }
+    //         large={large}
+    //       />
+    //     ))}
+    //   </div>
+    // </Layout>
+    <div
+      style={{
+        height: "90vh",
+        width: "100vw",
+        maxHeight: "90vh",
+      }}
+    >
+      <Window
+        title="bio.txt"
+        onClose={() => {
+          // alert("close");
         }}
+        onResize={() => {}}
       >
-        <motion.a
-          variants={FADE_DOWN_ANIMATION_VARIANTS}
-          href="https://twitter.com/steventey/status/1613928948915920896"
-          target="_blank"
-          rel="noreferrer"
-          className="mx-auto mb-5 flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full bg-blue-100 px-7 py-2 transition-colors hover:bg-blue-200"
+        <div
+          className="flex w-full flex-col space-y-12 items-center "
+          style={{
+            fontFamily: "ChicagoTF",
+          }}
         >
-          <Twitter className="h-5 w-5 text-[#1d9bf0]" />
-          <p className="text-sm font-semibold text-[#1d9bf0]">
-            Introducing Precedent
+          <Image alt="Chicago" src="/Alex.png" 
+            width={400}
+            height={300}
+           />
+          <p>
+            I went to Loyola University Chicago and studied Computer Science. I
+            graduated in 2021 with a B.S with a Minor in History. I was also the
+            Vice President of Loyola’s computer science club for a while. Now,
+            I'm an Software Engineer at CCC doing frontend development, I'm
+            extremely passionate about using tech for good, and most of my
+            career and side projects have been focused on or are adjacent to
+            this.
           </p>
-        </motion.a>
-        <motion.h1
-          className="bg-gradient-to-br from-black to-stone-500 bg-clip-text text-center font-display text-4xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-7xl md:leading-[5rem]"
-          variants={FADE_DOWN_ANIMATION_VARIANTS}
-        >
-          <Balancer>Building blocks for your Next project</Balancer>
-        </motion.h1>
-        <motion.p
-          className="mt-6 text-center text-gray-500 md:text-xl"
-          variants={FADE_DOWN_ANIMATION_VARIANTS}
-        >
-          <Balancer>
-            An opinionated collection of components, hooks, and utilities for
-            your Next.js project.
-          </Balancer>
-        </motion.p>
-        <motion.div
-          className="mx-auto mt-6 flex items-center justify-center space-x-5"
-          variants={FADE_DOWN_ANIMATION_VARIANTS}
-        >
-          <a
-            className="group flex max-w-fit items-center justify-center space-x-2 rounded-full border border-black bg-black px-5 py-2 text-sm text-white transition-colors hover:bg-white hover:text-black"
-            href={DEPLOY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              className="h-4 w-4 group-hover:text-black"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 4L20 20H4L12 4Z"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <p>Deploy to Vercel</p>
-          </a>
-          <a
-            className="flex max-w-fit items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-gray-600 shadow-md transition-colors hover:border-gray-800"
-            href="https://github.com/steven-tey/precedent"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github />
-            <p>Star on GitHub</p>
-          </a>
-        </motion.div>
-      </motion.div>
-      {/* here we are animating with Tailwind instead of Framer Motion because Framer Motion messes up the z-index for child components */}
-      <div className="my-10 grid w-full max-w-screen-xl animate-[slide-down-fade_0.5s_ease-in-out] grid-cols-1 gap-5 px-5 md:grid-cols-3 xl:px-0">
-        {features.map(({ title, description, demo, large }) => (
-          <Card
-            key={title}
-            title={title}
-            description={description}
-            demo={
-              title === "Beautiful, reusable components" ? (
-                <ComponentGrid />
-              ) : (
-                demo
-              )
-            }
-            large={large}
-          />
-        ))}
-      </div>
-    </Layout>
+          <p>
+            One of my previous passions was innovation within the digital
+            humanities. It’s a way to use programming for good by educating
+            people about new subjects. To this end I did a fellowship making a
+            project about the History of Computing, and a large project about a
+            conceptual exhibit of the Digital Humanities.
+          </p>
+          <p>
+            Now I’m more generally focused on delivering cool user experiences
+            on the web.
+          </p>
+          <p>
+            My favorite artists are Daft Punk, The Talking Heads, and The
+            Avalanches. My favorite meal is Mushroom Okonomiyaki at Gaijin. My
+            favorite drink is Gingerberry Kombucha or if i'm feeling nostalgic a
+            nice Iced Coffee from Dunkin. My favorite soccer team is FC
+            Barcelona and I was once a talented goalie in my youth.
+          </p>
+        </div>
+      </Window>
+    </div>
   );
 }
 

@@ -1,3 +1,87 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'ChicagoTF';
+  src: url('/fonts/ChicagoTF.ttf');
+ }
+
+.title-bar button {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 0.2rem;
+  border: 4px solid var(--secondary);
+  background-color: var(--primary);
+  cursor: pointer;
+  transform: scale(0.5);
+}
+.title-bar button span {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+.title-bar button.closenew::before, .title-bar button.closenew::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+}
+.title-bar button.closenew::before {
+  /* background: linear-gradient(var(--secondary) 0%, var(--secondary) 100%) left center, linear-gradient(var(--secondary) 0%, var(--secondary) 100%) right center, linear-gradient(var(--secondary) 0%, var(--secondary) 100%) center top, linear-gradient(var(--secondary) 0%, var(--secondary) 100%) center bottom;
+  background-size: 30% 4px, 30% 4px, 4px 30%, 4px 30%; */
+  background-repeat: no-repeat;
+}
+.title-bar button.closenew::after {
+  /* background: linear-gradient(var(--secondary) 0%, var(--secondary) 100%) left center, linear-gradient(var(--secondary) 0%, var(--secondary) 100%) right center, linear-gradient(var(--secondary) 0%, var(--secondary) 100%) center top, linear-gradient(var(--secondary) 0%, var(--secondary) 100%) center bottom;
+  background-size: 22.5% 3.6363636364px, 22.5% 3.6363636364px, 3.6363636364px 22.5%, 3.6363636364px 22.5%; */
+  background-repeat: no-repeat;
+  transform: none !important;
+}
+.title-bar button.closenew:active::before, .title-bar button.closenew:active::after {
+  opacity: 1;
+}
+
+.window {
+    background-color: #fff;
+    border: .1em solid #000;
+    flex-direction: column;
+    font-family: Inconsolata,Menlo,Chicago,Geneva;
+    margin: 1rem;
+    /* min-width: 320px; */
+    /* overflow: scroll !important;  */
+}
+.window-pane {
+    font-size: 18px;
+    /* height: 50% !important; */
+    letter-spacing: -.025em;
+    overflow-y: hidden;
+    padding: 1rem 2rem;
+}
+
+::-webkit-scrollbar {
+  width: 22px;
+  background-color: red !important;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(45deg, var(--secondary) 25%, transparent 25%, transparent 75%, var(--secondary) 75%, var(--secondary)), linear-gradient(45deg, var(--secondary) 25%, transparent 25%, transparent 75%, var(--secondary) 75%, var(--secondary));
+  background-color: var(--primary);
+  background-size: 4px 4px;
+  background-position: 0 0, 2px 2px;
+  width: 10px;
+  border-left: 3px solid var(--secondary);
+}
+.window-pane::-webkit-scrollbar-thumb {
+  width: 20px;
+  box-sizing: content-box;
+  background-color: var(--primary);
+  border: 2px solid var(--secondary);
+  border-right: none;
+}
